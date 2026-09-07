@@ -61,3 +61,27 @@ body {
   background-color: var(--bg-content);
   color: var(--text-main);
 }
+
+/* Custom Slim Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-content);
+}
+
+::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--color-brand) 30%, transparent);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--color-brand) 60%, transparent);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: color-mix(in srgb, var(--color-brand) 30%, transparent) var(--bg-content);
+}
