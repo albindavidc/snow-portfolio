@@ -1,12 +1,13 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { Menu, History, Moon, Sun, ArrowDown } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Menu, X, Moon, Sun } from 'lucide-react';
 import { Snowfall } from './Snowfall';
 import { CyclingName } from './CyclingName';
 import { useTheme } from './ThemeContext';
 
 export const Hero: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <section className="relative w-full h-[100svh] overflow-hidden bg-[var(--bg-hero)] bg-gradient-to-b from-[var(--bg-hero-start)] to-[var(--bg-hero-end)] flex flex-col text-[var(--text-main)] font-sans">
@@ -28,22 +29,42 @@ export const Hero: React.FC = () => {
           <a href="#experience" className="hover:text-[var(--text-main)] transition-colors">EXPERIENCE</a>
           <a href="#contact" className="hover:text-[var(--text-main)] transition-colors">CONTACT</a>
         </nav>
-        <div className="flex items-center gap-6 opacity-60 text-[var(--text-main)]">
-          <button className="hover:text-[var(--color-brand)] transition-colors" aria-label="History">
-            <History size={18} strokeWidth={2} />
-          </button>
+        <div className="flex items-center gap-6 opacity-60 text-[var(--text-main)] relative z-50">
           <button 
-            className="hidden md:block hover:text-[var(--color-brand)] transition-colors" 
+            className="hover:text-[var(--color-brand)] transition-colors" 
             aria-label="Toggle Theme"
             onClick={toggleTheme}
           >
             {theme === 'light' ? <Sun size={18} strokeWidth={2} /> : <Moon size={18} strokeWidth={2} />}
           </button>
-          <button className="md:hidden hover:text-[var(--color-brand)] transition-colors" aria-label="Menu">
-            <Menu size={20} strokeWidth={2} />
+          <button 
+            className="md:hidden hover:text-[var(--color-brand)] transition-colors" 
+            aria-label="Menu"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? <X size={20} strokeWidth={2} /> : <Menu size={20} strokeWidth={2} />}
           </button>
         </div>
       </header>
+
+      {/* Mobile Menu Dropdown */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="fixed top-20 left-4 right-4 z-40 bg-[var(--bg-card)]/95 backdrop-blur-xl border border-[var(--border-color)] rounded-3xl p-6 shadow-2xl md:hidden flex flex-col items-center gap-6 text-[11px] font-bold tracking-[0.2em] text-[var(--text-muted)]"
+          >
+            <a href="#home" onClick={() => setIsMobileMenuOpen(false)} className="text-[var(--text-main)] w-full text-center py-2">HOME</a>
+            <a href="#about" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[var(--text-main)] transition-colors w-full text-center py-2">ABOUT</a>
+            <a href="#work" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[var(--text-main)] transition-colors w-full text-center py-2">WORK</a>
+            <a href="#experience" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[var(--text-main)] transition-colors w-full text-center py-2">EXPERIENCE</a>
+            <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-[var(--text-main)] transition-colors w-full text-center py-2">CONTACT</a>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Hero Content */}
       <div className="relative z-10 flex-1 flex flex-col items-center justify-center text-center px-6">
