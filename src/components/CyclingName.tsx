@@ -2,19 +2,19 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
 const NAME_VARIANTS = [
-  { text: "ALBIN",    font: "font-sans" },
-  { text: "अल्बिन",    font: "font-['Noto_Sans_Devanagari']" },
-  { text: "ആൽബിൻ",   font: "font-['Noto_Sans_Malayalam']" },
-  { text: "ஆல்பின்",   font: "font-['Noto_Sans_Tamil']" },
-  { text: "ఆల్బిన్",   font: "font-['Noto_Sans_Telugu']" },
-  { text: "ಆಲ್ಬಿನ್",   font: "font-['Noto_Sans_Kannada']" },
-  { text: "アルビン",   font: "font-['Noto_Sans_JP']" },
-  { text: "阿尔宾",    font: "font-['Noto_Sans_SC']" },
-  { text: "АЛЬБИН",   font: "font-sans" },
-  { text: "ԱԼԲԻՆ",    font: "font-['Noto_Sans_Armenian']" },
-  { text: "ALBINUS",  font: "font-sans" },
-  { text: "ΑΛΜΠΙΝ",   font: "font-sans" },
-  { text: "אלבין",     font: "font-['Noto_Sans_Hebrew']" },
+  { text: "ALBIN",    fontFamily: "inherit" },
+  { text: "अल्बिन",    fontFamily: "'Noto Sans Devanagari', sans-serif" },
+  { text: "ആൽബിൻ",   fontFamily: "'Noto Sans Malayalam', sans-serif" },
+  { text: "ஆல்பின்",   fontFamily: "'Noto Sans Tamil', sans-serif" },
+  { text: "ఆల్బిన్",   fontFamily: "'Noto Sans Telugu', sans-serif" },
+  { text: "ಆಲ್ಬಿన్",   fontFamily: "'Noto Sans Kannada', sans-serif" },
+  { text: "アルビン",   fontFamily: "'Noto Sans JP', sans-serif" },
+  { text: "阿尔宾",    fontFamily: "'Noto Sans SC', sans-serif" },
+  { text: "АЛЬБИН",   fontFamily: "inherit" },
+  { text: "ԱԼԲԻՆ",    fontFamily: "'Noto Sans Armenian', sans-serif" },
+  { text: "ALBINUS",  fontFamily: "inherit" },
+  { text: "ΑΛΜΠΙΝ",   fontFamily: "inherit" },
+  { text: "אלבין",     fontFamily: "'Noto Sans Hebrew', sans-serif" },
 ];
 
 
@@ -57,7 +57,8 @@ export const CyclingName: React.FC = () => {
             filter: 'drop-shadow(0 0 20px rgba(198,255,61,0.25))' 
           }}
           whileTap={{ scale: 0.98 }}
-          className={`text-[var(--text-main)] text-6xl md:text-8xl lg:text-[8rem] font-black tracking-tighter mb-2 md:mb-0 leading-none relative transition-colors duration-300 ${NAME_VARIANTS[currentIndex].font}`}
+          className={`whitespace-nowrap text-[var(--text-main)] text-[clamp(3.5rem,14vw,8rem)] font-black tracking-tighter mb-2 md:mb-0 leading-none relative transition-colors duration-300`}
+          style={{ fontFamily: NAME_VARIANTS[currentIndex].fontFamily }}
         >
           {NAME_VARIANTS[currentIndex].text}
         </motion.div>

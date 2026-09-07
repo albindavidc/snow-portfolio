@@ -90,14 +90,14 @@ export const Content: React.FC = () => {
               <SkillCard 
                 icon={<LayoutDashboard size={20} />} 
                 title="Frontend" 
-                skills={['Angular 22', 'RxJS', 'NgRx', 'Tailwind CSS 4', 'Angular Material', 'SCSS', 'Bootstrap', 'ECharts', 'DHTMLX Gantt', 'FilePond', 'Google Maps', 'Stripe']} 
+                skills={['Angular 22', 'RxJS', 'NgRx', 'Tailwind CSS', 'Angular Material', 'SCSS', 'Bootstrap', 'ECharts', 'DHTMLX Gantt', 'FilePond', 'Google Maps', 'Stripe']} 
               />
             </motion.div>
             <motion.div variants={itemVariants} className="md:col-span-2">
               <SkillCard 
                 icon={<Server size={20} />} 
                 title="Backend" 
-                skills={['Node.js', 'NestJS 11', 'Express.js', 'Socket.io', 'JWT', 'Passport', 'CQRS', 'Clean Architecture']} 
+                skills={['Node.js', 'NestJS', 'Express.js', 'Socket.io', 'JWT', 'Passport', 'CQRS', 'Clean Architecture']} 
               />
             </motion.div>
             <motion.div variants={itemVariants} className="md:col-span-2 lg:col-span-1">
