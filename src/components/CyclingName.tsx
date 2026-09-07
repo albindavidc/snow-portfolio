@@ -1,0 +1,64 @@
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+
+const NAME_VARIANTS = [
+  { text: "ALBIN", font: "font-display" },        
+  { text: "अल्बिन", font: "font-['Noto_Sans_Devanagari']" },  
+  { text: "ആൽബിൻ", font: "font-['Noto_Sans_Malayalam']" },   
+  { text: "ஆல்பின்", font: "font-['Noto_Sans_Tamil']" },      
+  { text: "ఆల్బిన్", font: "font-['Noto_Sans_Telugu']" },      
+  { text: "ಆಲ್ಬಿನ್", font: "font-['Noto_Sans_Kannada']" },     
+  { text: "アルビン", font: "font-['Noto_Sans_JP']" },         
+  { text: "阿尔宾", font: "font-['Noto_Sans_SC']" },           
+  { text: "АЛЬБИН", font: "font-sans" },                       
+  { text: "ԱԼԲԻՆ", font: "font-['Noto_Sans_Armenian']" },      
+  { text: "ALBINUS", font: "font-display" },                   
+  { text: "ΑΛΜΠΙΝ", font: "font-sans" },                       
+  { text: "אלבין", font: "font-['Noto_Sans_Hebrew']" },        
+];
+
+export const CyclingName: React.FC = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return;
+    
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % NAME_VARIANTS.length);
+    }, 2500);
+
+    return () => clearInterval(interval);
+  }, [isPaused]);
+
+  return (
+    <div 
+      className="relative flex items-center justify-center overflow-hidden h-[clamp(56px,8vw,140px)]"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocus={() => setIsPaused(true)}
+      onBlur={() => setIsPaused(false)}
+      tabIndex={0}
+      aria-label="Albin (multilingual)"
+    >
+      {/* Multilingual Trace Layer (Visualizing the cycle) */}
+      <div className='absolute -top-8 left-1/2 -translate-x-1/2 text-gray-800 font-serif text-5xl opacity-10 italic pointer-events-none select-none hidden md:block'>
+        {NAME_VARIANTS[(currentIndex + 1) % NAME_VARIANTS.length].text}
+      </div>
+
+      <AnimatePresence mode="popLayout">
+        <motion.div
+          key={currentIndex}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20, position: 'absolute' }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          className={`text-white text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-2 leading-none relative ${NAME_VARIANTS[currentIndex].font}`}
+        >
+          {NAME_VARIANTS[currentIndex].text}
+          <div className='absolute -right-2 md:-right-6 top-0 w-1 md:w-1.5 h-full bg-[var(--color-brand)]/20 blur-sm pointer-events-none'></div>
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
+};
