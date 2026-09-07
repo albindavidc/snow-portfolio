@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Moon, Sun } from 'lucide-react';
+import { Menu, X, Moon, Sun, FileText, Download } from 'lucide-react';
 import { Snowfall } from './Snowfall';
 import { CyclingName } from './CyclingName';
 import { useTheme } from './ThemeContext';
@@ -8,6 +8,7 @@ import { useTheme } from './ThemeContext';
 export const Hero: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isResumeModalOpen, setIsResumeModalOpen] = useState(false);
 
   return (
     <section className="relative w-full h-[100svh] overflow-hidden bg-[var(--bg-hero)] bg-gradient-to-b from-[var(--bg-hero-start)] to-[var(--bg-hero-end)] flex flex-col text-[var(--text-main)] font-sans">
@@ -72,11 +73,11 @@ export const Hero: React.FC = () => {
         <div className="flex flex-col items-center gap-0 md:-gap-2">
           <CyclingName />
           
-          <motion.div
-             initial={{ opacity: 0, y: 20 }}
-             animate={{ opacity: 1, y: 0 }}
-             transition={{ duration: 0.8, delay: 0.4 }}
-             className="text-5xl md:text-7xl lg:text-8xl font-sans font-black tracking-tighter text-[var(--text-muted)] opacity-30 leading-none uppercase mt-2 md:mt-0"
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-sans font-black tracking-tighter text-[var(--text-muted)] opacity-30 leading-none uppercase mt-2 md:mt-0"
           >
             DAVID C
           </motion.div>
@@ -90,6 +91,29 @@ export const Hero: React.FC = () => {
         >
           AI Full-Stack Developer & Software Engineer building <span className="text-[var(--color-brand)] font-normal">intelligent</span>, production-ready web platforms.
         </motion.p>
+        
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1 }}
+          className="mt-8 flex flex-wrap items-center justify-center gap-3 z-20"
+        >
+          <button 
+            onClick={() => setIsResumeModalOpen(true)}
+            className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-[var(--text-main)] text-[var(--bg-card)] text-[13px] font-bold hover:bg-[var(--color-brand)] hover:text-black transition-all duration-300 pointer-events-auto"
+          >
+            <FileText size={14} strokeWidth={2} />
+            View Resume
+          </button>
+          <a 
+            href="/Albin_David_C_Resume.pdf" 
+            download="Albin_David_C_Resume.pdf"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-full border border-[var(--border-color)] text-[var(--text-main)] text-[13px] font-bold hover:border-[var(--color-brand)] hover:text-[var(--color-brand)] transition-all duration-300 pointer-events-auto"
+          >
+            <Download size={14} strokeWidth={2} />
+            Download
+          </a>
+        </motion.div>
       </div>
 
       {/* Scroll Indicator */}
@@ -111,6 +135,62 @@ export const Hero: React.FC = () => {
         <div className="text-[10px] rotate-180 tracking-[0.2em] text-[var(--color-brand)] font-bold" style={{ writingMode: 'vertical-rl' }}>PORTFOLIO 2026</div>
       </div>
 
+      {/* Resume Modal */}
+      <AnimatePresence>
+        {isResumeModalOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 md:p-12 bg-black/60 backdrop-blur-md"
+            onClick={() => setIsResumeModalOpen(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative w-full max-w-5xl h-[85vh] md:h-[90vh] bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl md:rounded-3xl shadow-2xl flex flex-col overflow-hidden pointer-events-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Modal Header */}
+              <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--border-color)] bg-[var(--bg-card)]/50 backdrop-blur-sm z-10">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-[var(--color-brand)]/10 rounded-full text-[var(--color-brand)]">
+                    <FileText size={18} />
+                  </div>
+                  <h3 className="font-bold tracking-wide text-sm md:text-base text-[var(--text-main)]">Albin_David_C_Resume.pdf</h3>
+                </div>
+                <div className="flex items-center gap-2">
+                  <a 
+                    href="/Albin_David_C_Resume.pdf" 
+                    download="Albin_David_C_Resume.pdf"
+                    className="p-2 hover:bg-white/10 rounded-full transition-colors text-[var(--text-muted)] hover:text-[var(--text-main)]"
+                    title="Download"
+                  >
+                    <Download size={20} />
+                  </a>
+                  <button 
+                    onClick={() => setIsResumeModalOpen(false)}
+                    className="p-2 hover:bg-white/10 rounded-full transition-colors text-[var(--text-muted)] hover:text-[var(--text-main)]"
+                  >
+                    <X size={20} />
+                  </button>
+                </div>
+              </div>
+              
+              {/* PDF Viewer */}
+              <div className="flex-1 w-full bg-white relative">
+                <iframe 
+                  src="/Albin_David_C_Resume.pdf#toolbar=0" 
+                  className="absolute inset-0 w-full h-full border-0"
+                  title="Resume PDF"
+                />
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
