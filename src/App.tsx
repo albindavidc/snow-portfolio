@@ -6,12 +6,15 @@
 import React from 'react';
 import { Hero } from './components/Hero';
 import { Content } from './components/Content';
+import { ThemeProvider } from './components/ThemeContext';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#010102] selection:bg-[var(--color-brand)] selection:text-black">
-      <Hero />
-      <Content />
-    </div>
+    <ThemeProvider>
+      <div className="min-h-screen">
+        <Hero />
+        <Content />
+      </div>
+    </ThemeProvider>
   );
 }

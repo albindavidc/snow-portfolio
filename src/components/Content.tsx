@@ -3,17 +3,17 @@ import { ExternalLink, Github, Mail, Phone, Code, FileText, LayoutDashboard, Bra
 
 export const Content: React.FC = () => {
   return (
-    <main className="relative bg-[#010102] z-20 pb-24">
+    <main className="relative bg-[var(--bg-content)] z-20 pb-24">
       {/* Container */}
       <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-24 py-24 space-y-32">
         
         {/* ABOUT SECTION */}
         <section id="about" className="space-y-8">
           <div className="flex items-center gap-4">
-            <h2 className="text-2xl md:text-3xl font-display text-gray-100 font-bold">About</h2>
-            <div className="flex-1 h-px bg-gradient-to-r from-gray-800 to-transparent" />
+            <h2 className="text-2xl md:text-3xl font-display text-[var(--text-main)] font-bold">About</h2>
+            <div className="flex-1 h-px bg-gradient-to-r from-[var(--border-color)] to-transparent" />
           </div>
-          <p className="text-gray-400 text-lg md:text-xl leading-relaxed max-w-4xl">
+          <p className="text-[var(--text-muted)] text-lg md:text-xl leading-relaxed max-w-4xl">
             AI-focused full-stack software engineer experienced in building maintainable web applications 
             and intelligent product workflows across Angular, TypeScript, Node.js, NestJS, Express.js, PostgreSQL, 
             MongoDB, Redis, and modern cloud tooling. Combines software engineering with UX/UI design to turn 
@@ -24,8 +24,8 @@ export const Content: React.FC = () => {
         {/* SKILLS SECTION */}
         <section id="skills" className="space-y-12">
           <div className="flex items-center gap-4">
-            <h2 className="text-2xl md:text-3xl font-display text-gray-100 font-bold">Skills</h2>
-            <div className="flex-1 h-px bg-gradient-to-r from-gray-800 to-transparent" />
+            <h2 className="text-2xl md:text-3xl font-display text-[var(--text-main)] font-bold">Skills</h2>
+            <div className="flex-1 h-px bg-gradient-to-r from-[var(--border-color)] to-transparent" />
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -65,11 +65,11 @@ export const Content: React.FC = () => {
         {/* EXPERIENCE SECTION */}
         <section id="experience" className="space-y-12">
           <div className="flex items-center gap-4">
-            <h2 className="text-2xl md:text-3xl font-display text-gray-100 font-bold">Experience</h2>
-            <div className="flex-1 h-px bg-gradient-to-r from-gray-800 to-transparent" />
+            <h2 className="text-2xl md:text-3xl font-display text-[var(--text-main)] font-bold">Experience</h2>
+            <div className="flex-1 h-px bg-gradient-to-r from-[var(--border-color)] to-transparent" />
           </div>
 
-          <div className="relative border-l border-gray-800/80 ml-3 space-y-12">
+          <div className="relative border-l border-[var(--border-color)] ml-3 space-y-12">
             <TimelineItem 
               role="Freelancer – WordPress Developer"
               company="Remote"
@@ -94,8 +94,8 @@ export const Content: React.FC = () => {
         {/* PROJECTS SECTION */}
         <section id="work" className="space-y-12">
           <div className="flex items-center gap-4">
-            <h2 className="text-2xl md:text-3xl font-display text-gray-100 font-bold">Selected Projects</h2>
-            <div className="flex-1 h-px bg-gradient-to-r from-gray-800 to-transparent" />
+            <h2 className="text-2xl md:text-3xl font-display text-[var(--text-main)] font-bold">Selected Projects</h2>
+            <div className="flex-1 h-px bg-gradient-to-r from-[var(--border-color)] to-transparent" />
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -129,8 +129,8 @@ export const Content: React.FC = () => {
         {/* EDUCATION & CERTS */}
         <section id="education" className="space-y-12">
           <div className="flex items-center gap-4">
-            <h2 className="text-2xl md:text-3xl font-display text-gray-100 font-bold">Education & Certifications</h2>
-            <div className="flex-1 h-px bg-gradient-to-r from-gray-800 to-transparent" />
+            <h2 className="text-2xl md:text-3xl font-display text-[var(--text-main)] font-bold">Education & Certifications</h2>
+            <div className="flex-1 h-px bg-gradient-to-r from-[var(--border-color)] to-transparent" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -149,13 +149,13 @@ export const Content: React.FC = () => {
                institution="Google"
                year="2022"
              />
-             <div className="bg-[#080808] border border-gray-800/50 p-6 rounded-xl flex items-start gap-4 hover:border-gray-700 transition-colors">
+             <div className="bg-[var(--bg-card)] border border-[var(--border-color)] p-6 rounded-xl flex items-start gap-4 hover:border-[var(--border-hover)] transition-colors">
                 <div className="mt-1 text-[var(--color-brand)]">
                   <GraduationCap size={24} />
                 </div>
                 <div>
-                  <h3 className="text-gray-200 font-semibold text-lg">Foundations & Certificates</h3>
-                  <p className="text-gray-400 mt-2 text-sm leading-relaxed">
+                  <h3 className="text-[var(--text-main)] font-semibold text-lg">Foundations & Certificates</h3>
+                  <p className="text-[var(--text-muted)] mt-2 text-sm leading-relaxed">
                     Foundation of HTML/CSS/JS (Duke University), TCS ION Career Edge, Angular Certificate, Google Digital Marketing.
                   </p>
                 </div>
@@ -164,19 +164,19 @@ export const Content: React.FC = () => {
         </section>
 
         {/* CONTACT SECTION */}
-        <section id="contact" className="space-y-12 pt-12 border-t border-gray-900">
+        <section id="contact" className="space-y-12 pt-12 border-t border-[var(--border-color)]">
            <div className="text-center space-y-6">
-              <h2 className="text-4xl md:text-5xl font-display text-gray-100 font-bold">Get in Touch</h2>
-              <p className="text-gray-400 max-w-lg mx-auto">
+              <h2 className="text-4xl md:text-5xl font-display text-[var(--text-main)] font-bold">Get in Touch</h2>
+              <p className="text-[var(--text-muted)] max-w-lg mx-auto">
                 Currently open for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
               </p>
               
               <div className="flex flex-wrap justify-center items-center gap-6 pt-6">
-                 <a href="mailto:albindavidc@gmail.com" className="flex items-center gap-2 text-gray-300 hover:text-[var(--color-brand)] transition-colors">
+                 <a href="mailto:albindavidc@gmail.com" className="flex items-center gap-2 text-[var(--text-muted)] hover:text-[var(--color-brand)] transition-colors">
                    <Mail size={18} />
                    <span>albindavidc@gmail.com</span>
                  </a>
-                 <a href="tel:+919946799434" className="flex items-center gap-2 text-gray-300 hover:text-[var(--color-brand)] transition-colors">
+                 <a href="tel:+919946799434" className="flex items-center gap-2 text-[var(--text-muted)] hover:text-[var(--color-brand)] transition-colors">
                    <Phone size={18} />
                    <span>+91 9946799434</span>
                  </a>
@@ -197,14 +197,14 @@ export const Content: React.FC = () => {
 
 // Sub-components
 const SkillCard = ({ icon, title, skills }: { icon: React.ReactNode; title: string; skills: string[] }) => (
-  <div className="bg-[#080808] border border-gray-800/50 p-6 rounded-xl hover:border-gray-700 transition-colors">
+  <div className="bg-[var(--bg-card)] border border-[var(--border-color)] p-6 rounded-xl hover:border-[var(--border-hover)] transition-colors">
     <div className="flex items-center gap-3 mb-4 text-[var(--color-brand)]">
       {icon}
-      <h3 className="font-semibold text-gray-200">{title}</h3>
+      <h3 className="font-semibold text-[var(--text-main)]">{title}</h3>
     </div>
     <div className="flex flex-wrap gap-2">
       {skills.map(s => (
-        <span key={s} className="px-3 py-1 bg-gray-900/50 border border-gray-800 text-gray-400 text-xs rounded-full">
+        <span key={s} className="px-3 py-1 bg-[var(--bg-card-hover)] border border-[var(--border-color)] text-[var(--text-muted)] text-xs rounded-full">
           {s}
         </span>
       ))}
@@ -214,54 +214,54 @@ const SkillCard = ({ icon, title, skills }: { icon: React.ReactNode; title: stri
 
 const TimelineItem = ({ role, company, location, date }: any) => (
   <div className="relative pl-8 sm:pl-12">
-    <div className="absolute left-[-5px] top-2 w-2.5 h-2.5 bg-[var(--color-brand)] rounded-full ring-4 ring-[#010102]" />
+    <div className="absolute left-[-5px] top-2 w-2.5 h-2.5 bg-[var(--color-brand)] rounded-full ring-4 ring-[var(--bg-content)]" />
     <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 mb-2">
-      <h3 className="text-xl font-bold text-gray-200">{role}</h3>
+      <h3 className="text-xl font-bold text-[var(--text-main)]">{role}</h3>
       <span className="text-sm font-medium text-[var(--color-brand)]/80 tracking-widest uppercase shrink-0">{date}</span>
     </div>
-    <div className="text-gray-400 font-medium">
-      {company} {location && <span className="text-gray-600">· {location}</span>}
+    <div className="text-[var(--text-muted)] font-medium">
+      {company} {location && <span className="text-[var(--text-subtle)]">· {location}</span>}
     </div>
   </div>
 );
 
 const ProjectCard = ({ title, description, tags, link }: any) => (
-  <div className="group bg-[#080808] border border-gray-800/50 rounded-xl p-8 hover:bg-[#0a0a0a] hover:border-gray-700 transition-all duration-300 flex flex-col h-full">
+  <div className="group bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl p-8 hover:bg-[var(--bg-card-hover)] hover:border-[var(--border-hover)] transition-all duration-300 flex flex-col h-full">
     <div className="flex justify-between items-start mb-6">
-      <h3 className="text-2xl font-bold text-gray-200 group-hover:text-[var(--color-brand)] transition-colors">{title}</h3>
-      <a href={`https://${link}`} target="_blank" rel="noreferrer" className="text-gray-500 hover:text-[var(--color-brand)] transition-colors">
+      <h3 className="text-2xl font-bold text-[var(--text-main)] group-hover:text-[var(--color-brand)] transition-colors">{title}</h3>
+      <a href={`https://${link}`} target="_blank" rel="noreferrer" className="text-[var(--text-muted)] hover:text-[var(--color-brand)] transition-colors">
         <ExternalLink size={20} />
       </a>
     </div>
-    <p className="text-gray-400 mb-8 flex-1">{description}</p>
+    <p className="text-[var(--text-muted)] mb-8 flex-1">{description}</p>
     <div className="flex flex-wrap gap-2 mb-6">
       {tags.map((t: string) => (
-        <span key={t} className="px-2.5 py-1 bg-gray-900 border border-gray-800 text-gray-400 text-xs rounded-md font-mono">
+        <span key={t} className="px-2.5 py-1 bg-[var(--bg-card-hover)] border border-[var(--border-color)] text-[var(--text-muted)] text-xs rounded-md font-mono">
           {t}
         </span>
       ))}
     </div>
-    <a href={`https://${link}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-gray-300 hover:text-[var(--color-brand)] transition-colors w-fit">
+    <a href={`https://${link}`} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--text-muted)] hover:text-[var(--color-brand)] transition-colors w-fit">
       View Live <ChevronRight size={16} />
     </a>
   </div>
 );
 
 const EducationItem = ({ degree, institution, year }: any) => (
-  <div className="bg-[#080808] border border-gray-800/50 p-6 rounded-xl flex items-start gap-4 hover:border-gray-700 transition-colors">
-    <div className="mt-1 text-gray-600">
+  <div className="bg-[var(--bg-card)] border border-[var(--border-color)] p-6 rounded-xl flex items-start gap-4 hover:border-[var(--border-hover)] transition-colors">
+    <div className="mt-1 text-[var(--text-subtle)]">
       <GraduationCap size={24} />
     </div>
     <div>
-      <h3 className="text-gray-200 font-semibold text-lg">{degree}</h3>
-      <div className="text-gray-400 mt-1">{institution}</div>
-      <div className="text-gray-500 text-sm mt-2">{year}</div>
+      <h3 className="text-[var(--text-main)] font-semibold text-lg">{degree}</h3>
+      <div className="text-[var(--text-muted)] mt-1">{institution}</div>
+      <div className="text-[var(--text-subtle)] text-sm mt-2">{year}</div>
     </div>
   </div>
 );
 
 const SocialLink = ({ href, icon, label }: any) => (
-  <a href={href} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full border border-gray-800 hover:border-gray-600 text-gray-400 hover:text-white transition-colors">
+  <a href={href} target="_blank" rel="noreferrer" className="flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border-color)] hover:border-[var(--border-hover)] text-[var(--text-muted)] hover:text-[var(--text-main)] transition-colors">
     {icon}
     <span className="text-sm font-medium">{label}</span>
   </a>

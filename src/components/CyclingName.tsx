@@ -33,7 +33,7 @@ export const CyclingName: React.FC = () => {
 
   return (
     <div 
-      className="relative flex items-center justify-center overflow-hidden h-[clamp(56px,8vw,140px)]"
+      className="relative flex items-center justify-center overflow-visible min-h-[clamp(80px,10vw,160px)]"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
       onFocus={() => setIsPaused(true)}
@@ -42,7 +42,7 @@ export const CyclingName: React.FC = () => {
       aria-label="Albin (multilingual)"
     >
       {/* Multilingual Trace Layer (Visualizing the cycle) */}
-      <div className='absolute -top-8 left-1/2 -translate-x-1/2 text-gray-800 font-serif text-5xl opacity-10 italic pointer-events-none select-none hidden md:block'>
+      <div className='absolute -top-4 left-1/2 -translate-x-1/2 text-[var(--text-subtle)] font-serif text-5xl opacity-30 italic pointer-events-none select-none hidden md:block'>
         {NAME_VARIANTS[(currentIndex + 1) % NAME_VARIANTS.length].text}
       </div>
 
@@ -53,7 +53,7 @@ export const CyclingName: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20, position: 'absolute' }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
-          className={`text-white text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-2 leading-none relative ${NAME_VARIANTS[currentIndex].font}`}
+          className={`text-[var(--text-main)] text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-2 leading-none relative ${NAME_VARIANTS[currentIndex].font}`}
         >
           {NAME_VARIANTS[currentIndex].text}
           <div className='absolute -right-2 md:-right-6 top-0 w-1 md:w-1.5 h-full bg-[var(--color-brand)]/20 blur-sm pointer-events-none'></div>
