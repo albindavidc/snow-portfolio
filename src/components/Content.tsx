@@ -135,14 +135,14 @@ export const Content: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
              <EducationItem 
-               degree="Mechatronics (MR) Engineering"
-               institution="APJ Abdul Kalam Technological University"
-               year="2023"
-             />
-             <EducationItem 
                degree="MEAN Stack Development"
                institution="Brototype"
                year="2025"
+             />
+             <EducationItem 
+               degree="Mechatronics (MR) Engineering"
+               institution="APJ Abdul Kalam Technological University"
+               year="2023"
              />
              <EducationItem 
                degree="UX Design"

@@ -41,11 +41,6 @@ export const CyclingName: React.FC = () => {
       tabIndex={0}
       aria-label="Albin (multilingual)"
     >
-      {/* Multilingual Trace Layer (Visualizing the cycle) */}
-      <div className='absolute -top-4 left-1/2 -translate-x-1/2 text-[var(--text-subtle)] font-serif text-5xl opacity-30 italic pointer-events-none select-none hidden md:block'>
-        {NAME_VARIANTS[(currentIndex + 1) % NAME_VARIANTS.length].text}
-      </div>
-
       <AnimatePresence mode="popLayout">
         <motion.div
           key={currentIndex}
@@ -56,7 +51,6 @@ export const CyclingName: React.FC = () => {
           className={`text-[var(--text-main)] text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight mb-2 leading-none relative ${NAME_VARIANTS[currentIndex].font}`}
         >
           {NAME_VARIANTS[currentIndex].text}
-          <div className='absolute -right-2 md:-right-6 top-0 w-1 md:w-1.5 h-full bg-[var(--color-brand)]/20 blur-sm pointer-events-none'></div>
         </motion.div>
       </AnimatePresence>
     </div>

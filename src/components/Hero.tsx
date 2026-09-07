@@ -85,9 +85,9 @@ export const Hero: React.FC = () => {
       </motion.div>
 
       {/* Subtle Side Rails */}
-      <div className="absolute left-10 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-8 opacity-20 pointer-events-none z-10">
-        <div className="w-px h-12 bg-[var(--text-main)] mx-auto"></div>
-        <div className="text-[10px] rotate-180 tracking-[0.2em]" style={{ writingMode: 'vertical-rl' }}>PORTFOLIO 2026</div>
+      <div className="absolute left-10 top-1/2 -translate-y-1/2 hidden lg:flex flex-col gap-8 opacity-40 pointer-events-none z-10">
+        <div className="w-px h-12 bg-[var(--color-brand)] mx-auto"></div>
+        <div className="text-[10px] rotate-180 tracking-[0.2em] text-[var(--color-brand)] font-bold" style={{ writingMode: 'vertical-rl' }}>PORTFOLIO 2026</div>
       </div>
 
     </section>
